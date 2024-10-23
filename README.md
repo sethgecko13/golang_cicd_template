@@ -1,0 +1,1 @@
+# golang_cicd_template
