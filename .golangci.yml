@@ -1,0 +1,21 @@
+---
+linters:
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - bodyclose
+    - exhaustive
+    - gocheckcompilerdirectives
+    - godox
+    - gofmt
+    - goimports
+    - gosec
+    - whitespace
+    - usestdlibvars
+linters-settings:
+  staticcheck:
+    checks: ["all"]

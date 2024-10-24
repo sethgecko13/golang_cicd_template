@@ -1,0 +1,40 @@
+---
+name: create cache-archive
+run-name: create cache archive ${{github.sha}}
+
+#on:  # yamllint disable-line rule:truthy
+#  workflow_dispatch:
+#  schedule:
+#    - cron: '10 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Run make test
+        run: |
+              make test
+
+      - name: Run make cache-archive
+        run: |
+              make cache-archive
+      - uses: actions/cache/save@v4
+        with:
+          path: |
+            cache.tar.gz
+          key: ${{ runner.os }}-cache-${{ hashFiles('cache.tar.gz') }}
+      - uses: actions/cache/save@v4
+        with:
+          path: |
+            bleve.tar.gz
+          key: ${{ runner.os }}-bleve-${{ hashFiles('bleve.tar.gz') }}
