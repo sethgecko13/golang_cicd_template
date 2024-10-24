@@ -85,7 +85,6 @@ go-lint: install-golang ci-lint vuln
 clean: install-golang
 	rm -rf build
 	go clean
-	echo {{define \"content\"}}${VERSION}{{end}} > www/meezeefit/version.html
 
 run: build install-golang
 	./meezy
