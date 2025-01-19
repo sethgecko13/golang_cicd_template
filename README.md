@@ -13,3 +13,5 @@ This is completely unsuitable for cloning and running with.
 This is here in case you read my blog post and want to see how I did things.  If you don't understand something, please don't use it until you do understand it well enough to see its shortcomings.
 
 Also, I moved the .github actions out of a .github directory for visibility and to make sure they don't run on this repo.
+
+**UPDATE 2025-01-18**: updated mac install scripts to automatically run the installer instead of just downloading the package.
