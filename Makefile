@@ -44,7 +44,7 @@ install-html-validate: install-npm
 	npm i -g html-validate@latest
 
 install-golang: make-lint
-	scripts/checkGoVersion.sh
+	scripts/install_go.sh
 
 html-lint: install-weblint
 	./scripts/html-validate.sh
